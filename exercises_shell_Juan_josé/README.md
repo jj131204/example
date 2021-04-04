@@ -7,4 +7,4 @@ puntos
 
 1. Read line = getline.c
 
-command line to av = strtok.c
+2. command line to av = strtok.c
