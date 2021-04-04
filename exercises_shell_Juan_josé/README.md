@@ -8,3 +8,5 @@ puntos
 1. Read line = getline.c
 
 2. command line to av = strtok.c
+
+compiler: gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
