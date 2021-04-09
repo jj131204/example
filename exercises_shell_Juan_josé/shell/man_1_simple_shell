@@ -1,0 +1,37 @@
+.TH man 1 "15 Apr 2021" "  "simple_shell man page"
+.SH NAME
+.B simple_shell
+- simple shell that can be compiled and executed from the command line.
+
+.SH SYNOPSIS
+.B ./hsh
+
+.SH  DESCRIPTION
+Simple Shell is command interpreter that executes commands read from the standard input
+
+.SH  EXAMPLES
+
+.IP -Compilling
+gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+
+
+.IP -Interactive mode.
+.PP
+.B ./hsh
+
+.B /bin/ls
+
+.IP -Not-interactive-form
+.B echo "/bin/ls" | ./hsh
+
+
+.SH AUTHORS
+
+.B Juan José Arteta Maury 
+.B <jj131204@gmail.com>
+
+.B Duvan Rodelo
+.B <>
+
+
+

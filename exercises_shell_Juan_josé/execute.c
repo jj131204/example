@@ -1,15 +1,10 @@
 #include "holberton.h"
 
-/*
- *
- *
- *
- */
 int ejecutar(char **tok)
 {
 	pid_t pid;
 	int status;
-
+	
 	pid = fork();
 
 	if (pid == 0)
@@ -30,7 +25,7 @@ int ejecutar(char **tok)
 	{
 		do {
 			waitpid(pid, &status, WUNTRACED);
-
+		
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
 

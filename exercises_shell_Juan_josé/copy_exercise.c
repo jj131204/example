@@ -3,10 +3,18 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
+
 #define SEPARATORS " ,!?\'\"\n\t"
 
 int ejecutar(char **ar);
 void token(char *n, char **tok);
+void path(char *pat);
+
+int _putchar(char c)
+{
+        return (write(1, &c, 1));
+}
 
 int main()
 {
@@ -15,22 +23,27 @@ int main()
 	int num;
 	char *tok[100];
 
+
 	while(1)
 	{
 		printf("$");
 		num = getline(&line, &bufsize, stdin);
 		if (num == EOF)
 		{
+			free(line);
 			return (0);
 		}
 		printf("%s", line);
 	
+		/*for(count = 0; line[count] == ' '; count++)
+*/
 		token(line, tok);
 	
 		ejecutar(tok);
 
-	}
-
+		/*path(tok[0]);
+*/	}
+	free(line);
 	return(0);
 }
 
@@ -54,12 +67,12 @@ int ejecutar(char **tok)
 {
 
 pid_t pid;
-int status;
+/*int status;*/
 
 pid = fork();
 
 	if(pid == 0)
-	{	
+	{
 	if (execve(tok[0], tok, NULL) == -1)
 	{
 		perror("Error:");
@@ -74,14 +87,15 @@ pid = fork();
 	}
 	else
 	{
-		do
+
+		wait(NULL);
+/*		do
 		{
 			waitpid(pid, &status, WUNTRACED);
-		}while (WIFEXITED(status) && !WIFSIGNALED(status));
+		}while (!WIFEXITED(status) && !WIFSIGNALED(status));
 
-
+*/
 	}
 	return(1);
-
-
 }
+
