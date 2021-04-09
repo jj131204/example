@@ -10,6 +10,7 @@
 int ejecutar(char **ar);
 void token(char *n, char **tok);
 void path(char *pat);
+void sigint_handler(int sigint);
 
 int _putchar(char c)
 {
@@ -23,7 +24,7 @@ int main()
 	int num;
 	char *tok[100];
 
-
+	 signal(SIGINT, sigint_handler);
 	while(1)
 	{
 		printf("$");
@@ -99,3 +100,11 @@ pid = fork();
 	return(1);
 }
 
+void sigint_handler(int sigint)
+{
+        (void)sigint;
+
+        signal(SIGINT, sigint_handler);
+        write(STDOUT_FILENO, "\n$ ", 3);
+        fflush(stdout);
+}
