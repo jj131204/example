@@ -15,6 +15,8 @@ int main(void)
 	int num;
 	char *tok[100];
 
+	signal(SIGINT, sigint_handler);
+
 	while (1)
 	{
 		_putchar('$');
@@ -32,3 +34,13 @@ int main(void)
 	free(line);
 	return (0);
 }
+
+void sigint_handler(int sigint)
+{
+	(void)sigint;
+
+	signal(SIGINT, sigint_handler);
+	write(STDOUT_FILENO, "\n$ ", 3);
+	fflush(stdout);
+}
+
