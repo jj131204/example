@@ -12,6 +12,8 @@ void token(char *line, char *tok[])
 	char *token = NULL;
 	int count = 0;
 
+
+
 	token = strtok(line, SEPARATORS);
 	tok[count] = token;
 

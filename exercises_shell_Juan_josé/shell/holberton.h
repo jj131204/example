@@ -15,6 +15,8 @@ void token(char *line, char **tok);
 int ejecutar(char *tok[]);
 int _putchar(char c);
 void path(char *path);
+void sigint_handler(int sigint);
+
 
 /**
  * string functions

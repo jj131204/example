@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-#define SEPARATORS " ,!?\'\"\n\t"
+#define SEPARATORS " ,!?\'\"\n\t\"
 
 
 int main(void);

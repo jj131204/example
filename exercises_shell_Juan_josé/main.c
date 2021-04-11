@@ -27,7 +27,7 @@ int main(void)
 
 		token(line, tok);
 		ejecutar(tok);
-		
+
 
 
 	}

@@ -14,8 +14,9 @@ int main(void)
 	size_t bufsize = 0;
 	int num;
 	char *tok[100];
+	int validators = 1;
 
-	signal(SIGINT, sigint_handler);
+	signal(SIGINT,  sigint_handler);
 
 	while (1)
 	{
@@ -28,20 +29,20 @@ int main(void)
 			return (0);
 		}
 
+
 		token(line, tok);
-		ejecutar(tok);
-		
+		validators = line_validator(tok);
 
-
+		if (validators == 0)
+		{
+			free(line);
+			return(0);
+		}
+		else
+		{	
+			execute(tok, line);
+		}
 	}
 	free(line);
 	return (0);
-}
-void sigint_handler(int sigint)
-{
-        (void)sigint;
-
-        signal(SIGINT, sigint_handler);
-        write(STDOUT_FILENO, "\n$ ", 3);
-        fflush(stdout);
 }

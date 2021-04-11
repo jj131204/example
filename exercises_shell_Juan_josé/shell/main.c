@@ -43,4 +43,3 @@ void sigint_handler(int sigint)
 	write(STDOUT_FILENO, "\n$ ", 3);
 	fflush(stdout);
 }
-
