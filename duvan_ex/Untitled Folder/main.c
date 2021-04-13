@@ -1,4 +1,9 @@
 #include "header.h"
+/**
+ * main - main function.
+ *
+ * Return: 0.
+ */
 
 int main(void)
 {
@@ -8,7 +13,7 @@ int main(void)
   	char *str = "#Caribe_isFun ";
 	int condition = 1;
 
-	signal(SIGINT, sigint_handler);
+	signal(SIGINT, sigint_controld);
 
 	while(condition)
 	{
@@ -32,13 +37,19 @@ int main(void)
 	}
 	return (EXIT_SUCCESS);
 			
-}	
+}
+/**
+ * sigint_handler -  Signal Handler function.
+ * @sigint: To catch SIGINT next time, need reset the Handler.
+ *
+ * Return: Nothing.
+ */	
 
-void sigint_handler(int sigint)
+void sigint_controld(int sigint)
 {
 	(void)sigint;
 
-	signal(SIGINT, sigint_handler);
+	signal(SIGINT, sigint_controld);
 	write(STDOUT_FILENO, "\n$ ", 3);
 	fflush(stdout);
 }

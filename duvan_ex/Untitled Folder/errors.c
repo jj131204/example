@@ -1,4 +1,12 @@
 #include "header.h"
+/**
+ * errors - Handle errors function.
+ * @tokens: The case error.
+ *
+ * Description: function handles error controls.
+ *
+ * Return: Nothing.
+ */
 void errors(char __attribute__((unused)) **tokens)
 {
 	if (tokens[0])

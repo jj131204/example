@@ -1,4 +1,12 @@
 #include "header.h"
+/**
+ * comparing - compare function.
+ * @tokens: The tokenized line.
+ *
+ * Description: function to compare the built-in with the command entered.
+ *
+ * Return: The built-in function result.
+ */
 
 int line_validator(char **tokens)
 {

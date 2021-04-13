@@ -28,6 +28,6 @@ int _strcmp(char *s1, char *s2);
 
 extern char **environ;
 
-void sigint_handler(int sigint);
+void sigint_controld(int sigint);
 
 #endif

@@ -1,5 +1,12 @@
 #include "header.h"
-
+/**
+ * _env - environment function.
+ * @commands: General commands.
+ *
+ * Description: function to prints the environments variables.
+ *
+ * return: Nothing.
+ */
 void _env(char **commands)
 {
 	int i;
@@ -18,6 +25,14 @@ void _env(char **commands)
 		
 	}
 }
+/**
+ * _cd - explore function.
+ * @args: The number of arguments for cd.
+ *
+ * Description: function to change of directories in this Shell.
+ *
+ * Return: Always 2, to continue executing.
+ */
 
 int _cd(char **args)
 {

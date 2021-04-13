@@ -1,5 +1,12 @@
 #include "header.h"
 
+/**
+ * semicolon -  This function handle the commands separator ";"
+ * @line: The pointer to the stdin line entered.
+ *
+ * Return: 0.
+ */
+
 int semicolon(char *line)
 {
 	char *one_token, **total, **tokens;

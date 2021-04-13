@@ -1,27 +1,36 @@
 #include "header.h"
+/**
+ * executing - execute function.
+ * @tokens: The tokenized line.
+ * @line: Input from user
+ *
+ * Return: 1.
+ */
 
 int executing(char **tokens, char *line)
 {
 	pid_t pid;
-	int o, status;
-	char path[8192] = "/bin", *aux = "/b", *aux2 = " /b.h";
+	int i = 0;
+	char path[1024] = "/bin";
 
-	if (line[0] == aux[0] && line[1] == aux[1])
-		_strcpy(path, line);
-	else if (line[0] == aux2[0])
+	while(line[i] == ' ')
 	{
-		for(o = 0; line[o] != '\0'; o++)
-		{
-			if (line[o] == aux2[1])
-				if (line [o - 1] == aux2[0])
-					_strcpy(path, "/bin/ls");
-		}
+		i++;
 	}
 
-	else if (line[0] == aux2[3] && line[2] == aux2[4])
-		_strcpy(path, "/bin/ls");
+	if (line[i] == path[0])
+	{	
+		_strcpy(path, *tokens);
+	}
+	else if (tokens[0])
+{
+		_strcat(path, "/"), _strcat(path, *tokens);
+}
+	
 	else
-		_strcat(path, "/"), _strcat(path, line);
+	{
+		return(0);
+	}		
 	pid = fork();
 	if (pid == 0)
 	{
@@ -39,10 +48,11 @@ int executing(char **tokens, char *line)
 	}
 	else
 	{
-		do{
+		wait(NULL);
+		/*do{
 			waitpid(pid, &status, WUNTRACED);
 			
-		}while (!WIFEXITED(status) && !WIFSIGNALED(status));
+		}while (!WIFEXITED(status) && !WIFSIGNALED(status));*/
 	}
 	return (1);
 }
